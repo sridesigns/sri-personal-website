@@ -3,13 +3,17 @@ const Routes = {
       label: 'Home',
       path: '/',
     },
-    projects: {
-      label: 'Projects',
-      path: '/projects',
+    work: {
+      label: 'Work',
+      path: '/work',
     },
-    writing: {
-      label: 'Writing',
-      path: '/writing',
+    life: {
+      label: 'Life',
+      path: '/life',
+    },
+    love: {
+      label: 'Love',
+      path: '/love',
     },
     about: {
       label: 'About',

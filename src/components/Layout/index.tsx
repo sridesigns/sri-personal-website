@@ -1,6 +1,6 @@
 export default function Layout({ children }) {
     return (
-      <div className="bg-white font-primary text-gray-900 antialiased min-h-screen">
+      <div className="bg-white text-slate-900 antialiased mx-auto">
         {children}
       </div>
     )
