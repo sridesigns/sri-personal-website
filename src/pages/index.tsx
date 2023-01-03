@@ -32,8 +32,8 @@ export default function Home({ home }: Props) {
 
         <Header />
         <main>
-          <header className=" max-w-screen-md min-h-screen py-32 mx-auto justify-center">
-            <h1 className="text-8xl font-extrabold tracking-tighter"> Inquistive designer, artist, storyteller.</h1>
+          <header className=" max-w-screen-md py-32 mx-auto justify-center">
+            <h1 className="text-8xl font-extrabold tracking-tighter text-black"> Inquistive designer, artist, researcher, storyteller.</h1>
           </header>
 
 

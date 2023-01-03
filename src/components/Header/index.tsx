@@ -25,7 +25,7 @@ const Header = () => {
         .filter((r) => r.path !== '/')
         .find((r) => currPathName.includes(r.path))?.label
   return (
-    <div className=" top-0 z-10 w-full py-2 bg-white lg:z-auto lg:relative border-opacity-20 md:bg-opacity-70 filter-blur" role="navigation">
+    <div className=" top-0 z-10 w-full py-2 bg-transparent lg:z-auto lg:relative border-opacity-20 md:bg-opacity-70 filter-blur" role="navigation">
 
       {/* Mobile Navigation Starts */}
       <div className="grid grid-cols-1 lg:hidden">
@@ -58,8 +58,8 @@ const Header = () => {
       {/* Mobile Navigation Ends */}
 
       {/* Desktop Navigation Starts */}
-      <div className="hidden lg:grid bg-white top-0 z-10 w-full py-8">
-        <div className="mx-auto grid grid-cols-3 max-w-screen-lg">
+      <div className="hidden lg:grid top-0 z-10 w-full py-8">
+        <div className="mx-auto grid grid-cols-3 max-w-screen-lg justify-between">
           <div className="col-span-2">
             <Link href="/">
               <a>
@@ -67,11 +67,11 @@ const Header = () => {
               </a>
             </Link>
           </div>
-          <div className= "flex flex-row space-x-8">
+          <div className= "flex flex-row space-x-4">
             {
               defaultRoutes.map((route) => {
                 const isSelected = route.path === router.pathname
-                const defaultLinks = `font-sans text-sm flex text-slate-600 font-medium bg-white rounded-2xl px-4 py-2`
+                const defaultLinks = `font-sans text-sm flex text-slate-600 font-medium rounded-2xl px-4 py-2`
                 const activeLinks = `font-semibold text-black bg-slate-100 rounded-2xl px-4 py-2`
                 const inactiveLinks = `hover:text-slate-900 hover:font-semibold filter-saturate`
                 return (
