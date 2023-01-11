@@ -25,7 +25,7 @@ const Header = () => {
         .filter((r) => r.path !== '/')
         .find((r) => currPathName.includes(r.path))?.label
   return (
-    <div className=" top-0 z-10 w-full py-2 bg-transparent lg:z-auto lg:relative border-opacity-20 md:bg-opacity-70 filter-blur" role="navigation">
+    <div className="top-0 z-10 w-full bg-transparent lg:z-auto lg:relative border-opacity-20 md:bg-opacity-70 filter-blur border-b border-slate-400" role="navigation">
 
       {/* Mobile Navigation Starts */}
       <div className="grid grid-cols-1 lg:hidden">
@@ -58,12 +58,12 @@ const Header = () => {
       {/* Mobile Navigation Ends */}
 
       {/* Desktop Navigation Starts */}
-      <div className="hidden lg:grid top-0 z-10 w-full py-8">
+      <div className="hidden lg:grid top-0 z-10 w-full my-2 py-1">
         <div className="mx-auto grid grid-cols-3 max-w-screen-lg justify-between">
           <div className="col-span-2">
             <Link href="/">
               <a>
-                <h1 className="text-sm font-medium text-slate-800 hover:text-black hover:font-semibold px-4 py-2">Sriram Venugopal</h1>
+                <h1 className="text-sm font-semibold text-slate-800 hover:text-black px-4 py-1">Sriram Venugopal</h1>
               </a>
             </Link>
           </div>
@@ -71,8 +71,8 @@ const Header = () => {
             {
               defaultRoutes.map((route) => {
                 const isSelected = route.path === router.pathname
-                const defaultLinks = `font-sans text-sm flex text-slate-600 font-medium rounded-2xl px-4 py-2`
-                const activeLinks = `font-semibold text-black bg-slate-100 rounded-2xl px-4 py-2`
+                const defaultLinks = `font-sans text-sm flex text-slate-600 font-medium rounded-2xl px-4 py-1 items-center`
+                const activeLinks = `text-white bg-slate-900 font-semibold rounded-2xl px-4 py-1 items-center`
                 const inactiveLinks = `hover:text-slate-900 hover:font-semibold filter-saturate`
                 return (
                   <Link href={route.path} key={route.path}>

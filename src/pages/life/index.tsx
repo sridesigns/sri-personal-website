@@ -18,25 +18,24 @@ export async function getStaticProps() {
   }
 }
 
-export default function Life({ blogs }) {
+export default function Love({ blogs }) {
   console.log(blogs);
   return (
     <Layout>
       <Head>
-        <title>Life &middot; Sri</title>
+        <title>Sri Loves</title>
         <link rel="icon" href="/favicons/alien.png" />
       </Head>
       <Header />
-      <main className="max-w-screen md:max-w-screen-md mx-6 md:mx-auto ">
-        <header className=" py-16 space-y-2">
-          <h1 className="text-4xl font-extrabold text-slate-900 text-center">Life</h1>
-          <p className="text-sm text-slate-700 text-center">Curation of my thoughts and life experiences</p>
+      <main className="max-w-screen md:max-w-screen-md lg:max-w-screen-lg mx-6 md:mx-auto ">
+        <header className="py-16 space-y-2">
+          <h1 className="text-4xl font-extrabold text-slate-900">Life // Journal of my thoughts</h1>
         </header>
         <div className="space-y-10 pb-20">
           {blogs?.blogPosts?.map((blog) => (
             <div key={blog.slug}>
             <p className="text-xs text-slate-500 uppercase tracking-wide font-medium pb-2">{new Date(blog.publishedAt).toDateString()}</p>
-              <Link href={`/life/${blog.slug}`}>
+              <Link href={`/love/${blog.slug}`}>
                 <a>
                   <h4 className="text-xl font-bold text-slate-900 hover:text-indigo-500 leading-relaxed">{blog.title}</h4>
                 </a>

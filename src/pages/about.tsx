@@ -17,20 +17,20 @@ export default function About() {
       </Head>
       <Header />
       <main className="max-w-screen md:max-w-screen-md mx-6 md:mx-auto">
-        <header className=" py-20">
+        <header className="pt-20 pb-10">
             <div className="grid grid-cols-4 gap-4">
-                <div className="col-span-2 space-y-4 text-lg">
+                <div className="col-span-2 space-y-4 text-base my-auto">
                     <h1 className="text-4xl font-semibold tracking-tight text-slate-900 pb-2">✌️ Hello, I am <span className="font-extrabold italic">Sri!</span></h1>
                     <p className="text-left leading-relaxed">My full name is Sriram Venugopal. I'm an Indian <span className="italic">(he/him)</span> living in Berlin, Germany.</p>
-                    <p className="text-left leading-relaxed"> I am a product designer, building exciting, joyful shopping and marketing experiences at&nbsp;
+                    <p className="text-left leading-relaxed"> I am a product designer, building delightful consumer &amp; partner experiences at
                         <Link href="https://en.zalando.de/?_rfl=de">
-                            <a className= "font-bold text-slate-900 hover:bg-yellow-200 px-1 rounded-sm" target="_blank" rel="noopener noreferrer">Zalando SE</a>
+                            <a className= "font-bold text-slate-900 hover:bg-yellow-200 px-1 rounded-sm" target="_blank" rel="noopener noreferrer">Zalando SE.</a>
                         </Link>
                     </p>
-                    <p className="text-left leading-relaxed">Before this, I was crafting delightful employee experiences and productivity tools at&nbsp;
+                    <p className="text-left leading-relaxed">Before this, I was crafting exciting employee experiences and productivity tools at
                         <Link href="https://www.tcs.com/">
                             <a className= "font-bold text-slate-900 hover:bg-yellow-200 px-1 rounded-sm" target="_blank" rel="noopener noreferrer">Tata Consultancy Services &#40;TCS&#41;</a>
-                        </Link> for diverse clientele across the globe.
+                        </Link>for diverse clientele across the globe.
                     </p>
                     <p className="text-left leading-relaxed">I believe design can be the fulcrum of change and when executed properly, we can create a positive and lasting impact on the planet we
                     live in, the environment, the society, and the humans.
@@ -76,11 +76,11 @@ export default function About() {
         </div>
 
         <div className="col-span-2 space-y-4 text-base pt-4">
-            <h4 className="text-2xl font-extrabold">Skills &amp; Interests</h4>
+            <h4 className="text-2xl font-extrabold">Skills and Interests</h4>
             <div className="space-y-2 pb-2">
                 <p className="text-slate-700 leading-relaxed pb-2">Over the years, I have been fortunate to practice design thinking, user research, field studies, 
                 storytelling, product and visual design, design systems, data visualisation, illustrations, and facilitate diverse workshops for companies across the globe. <br />I also like to code occasionally. I have been experimenting with Next.js, Tailwind CSS.</p>
-                <p className="text-slate-700 bg-sky-50 border border-sky-200 rounded-md p-4 text-sm">😎 Fun fact &rarr; This site is built using the same stack with an headless CMS.</p>
+                <p className="text-slate-700 bg-sky-50 border border-sky-200 rounded-md p-4 text-sm">😎 Fun fact &rarr; This site is powered using the same stack  along with an headless CMS.</p>
             </div>
             <p className="text-slate-700 leading-relaxed">Outside of work, I'm mostly exploring Berlin and parts of Europe, cooking, reading, sketching, playing video games and 
                 <Link href="https://youtube.com">
