@@ -2,10 +2,9 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Layout from '../components/Layout'
 import Header from '../components/Header'
-import HomeWork from '../components/Home/Projects'
 import {GetHome} from '../graphql/data/Home'
 
-interface Props {
+/**interface Props {
   home: string,
 }
 
@@ -18,7 +17,7 @@ export async function getStaticProps() {
       home
     },
   };
-}
+}**/
 
 export default function Home({ home }: Props) {
   return (
@@ -33,13 +32,12 @@ export default function Home({ home }: Props) {
         <Header />
         <main>
           <header className=" max-w-screen-md py-32 mx-auto justify-center">
-            <h1 className="text-7xl font-extrabold tracking-tighter text-black"> Inquisitive designer, artist, researcher, flâneur.</h1>
+            <h1 className="text-7xl font-extrabold tracking-tighter text-black"> Inquisitive designer, researcher, artist, flâneur.</h1>
           </header>
 
 
           {/* Case Studies Section */}
           <div className="mb-12 lg:mb-24" id="casestudies">
-            <HomeWork home={home} />
           </div>
         </main>
       </Layout>

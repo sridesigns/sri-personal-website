@@ -1,10 +1,10 @@
 import { gql } from 'graphql-request'
 import { graphQLClient } from '../../services/hygraphcms'
 
-export async function GetCaseStudy(slug) {
+export async function GetArchive(slug) {
   const query = gql`
-  query CaseStudy($slug: String!) {
-    caseStudies(where: {slug: $slug}) {
+  query Archive($slug: String!) {
+    archives(where: {slug: $slug}) {
       id
       title
       slug
@@ -32,10 +32,10 @@ export async function GetCaseStudy(slug) {
   return await graphQLClient.request(query, variables);
 }
 
-export async function GetCaseStudySlug() {
+export async function GetArchiveSlug() {
   const query = gql`
   query {
-    caseStudies {
+    archives {
       slug 
     }
   }

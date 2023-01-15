@@ -3,23 +3,41 @@ import Link from "next/link";
 import Layout from "../../components/Layout";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import { GetBlogPosts } from "../../graphql/data/Posts/blogposts";
+import Archives from "../../components/Archives";
+import HorizontalLine from "../../components/HorizontalLine";
+import { GetArchiveList } from "../../graphql/data/Projects/archivelist";
 
+
+interface Props {
+  slug: string
+  archives: {
+    id: string
+    title: string
+    publishedAt: string
+    summary: string
+    bannerImage: {
+      url: string
+      width: number
+      height: number
+    }
+  }
+}
 
 export async function getStaticProps() {
-  const blogs = await GetBlogPosts()
+  const archives = await GetArchiveList()
+
 
   return {
     //This data is slightly dynamic, so we'll update it every hour.
     revalidate: 60 * 60,
     props: {
-      blogs
+      archives
     },
   }
 }
 
-export default function Life({ blogs }) {
-  console.log(blogs);
+export default function Life({archives }: Props) {
+  console.log(archives);
   return (
     <Layout>
       <Head>
@@ -33,7 +51,7 @@ export default function Life({ blogs }) {
           <div className="columns-1 md:columns-2 lg:columns-3 space-y-4">
             <p className="text-sm text-slate-700 leading-relaxed">I completed my Bachelors in electronics and instrumentation engineering in May, 2011 and I got my first job as a Software engineer 
             at TCS, one of India's biggest IT consulting firms, in Sep 2011.</p>
-            <p className="text-sm text-slate-700 leading-relaxed">I consulted for Nielsen Holdings, a global leader in data and analytics, as a software engineer for two years. We developed a robust,
+            <p className="text-sm text-slate-700 leading-relaxed">I consulted for Nielsen Holdings, a global leader in data and analytics, as an engineer for two years. We developed a robust,
              reporting and analytics software that processed information from 700k+ households across North America and helped shape the future of media and advertisements.</p>
             <p className="text-sm text-slate-700 leading-relaxed">At the end of 2013, I sought out a new challenge. Within TCS, I had opportunity to work as an user analyst with
              another N.A financial org., Citibank. Along with a design agency, we designed and developed the Citibank's consumer mobile app. I worked closely with design firm to bridge
@@ -52,23 +70,20 @@ export default function Life({ blogs }) {
             e-commerce for consumers and partners.</p>
           </div>
         </header>
-        <div className="space-y-10 pb-20">
-            <h2 className="text-2xl font-semibold pb-4">Recent <span className="italic font-extrabold">Work</span></h2>
-          {blogs?.blogPosts?.map((blog) => (
-            <div key={blog.slug}>
-            <p className="text-xs text-slate-500 uppercase tracking-wide font-medium pb-2">{new Date(blog.publishedAt).toDateString()}</p>
-              <Link href={`/life/${blog.slug}`}>
-                <a>
-                  <h4 className="text-xl font-bold text-slate-900 hover:text-indigo-500 leading-relaxed">{blog.title}</h4>
-                </a>
-              </Link>
-              <p className="text-sm text-slate-700 leading-relaxed py-1">{blog.excerpt}</p>
-            </div>
-          ))}
+
+        {/* Recent Work */}
+
+        <div className="pb-20">
+            <h2 className="text-2xl font-semibold pb-2">Recent <span className="italic font-extrabold">Work</span></h2>
+            <HorizontalLine />
         </div>
 
+        {/* From the Archives */}
+
         <div>
-            <h2 className="text-2xl font-semibold pb-4">From the&nbsp;<span className="italic font-extrabold">Archives</span></h2>
+            <h2 className="text-2xl font-semibold pb-2">From the&nbsp;<span className="italic font-extrabold">Archives</span></h2>
+            <HorizontalLine />
+            <Archives archives={archives} />
 
         </div>
       </main>

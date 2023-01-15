@@ -35,7 +35,7 @@ export default function Love({ blogs }) {
           {blogs?.blogPosts?.map((blog) => (
             <div key={blog.slug}>
             <p className="text-xs text-slate-500 uppercase tracking-wide font-medium pb-2">{new Date(blog.publishedAt).toDateString()}</p>
-              <Link href={`/love/${blog.slug}`}>
+              <Link href={`/life/${blog.slug}`}>
                 <a>
                   <h4 className="text-xl font-bold text-slate-900 hover:text-indigo-500 leading-relaxed">{blog.title}</h4>
                 </a>
