@@ -7,9 +7,9 @@ import Close from '../../assets/close';
 
 const defaultRoutes = [
   Routes.work,
+  Routes.about,
   Routes.life,
   Routes.love,
-  Routes.about,
 ]
 
 const Header = () => {
@@ -25,7 +25,7 @@ const Header = () => {
         .filter((r) => r.path !== '/')
         .find((r) => currPathName.includes(r.path))?.label
   return (
-    <div className="top-0 z-10 w-full bg-transparent lg:z-auto lg:relative border-opacity-20 md:bg-opacity-70 filter-blur border-b border-slate-400" role="navigation">
+    <div className="top-0 z-10 w-full bg-gray-50 lg:z-auto lg:relative" role="navigation">
 
       {/* Mobile Navigation Starts */}
       <div className="grid grid-cols-1 lg:hidden">
@@ -58,22 +58,25 @@ const Header = () => {
       {/* Mobile Navigation Ends */}
 
       {/* Desktop Navigation Starts */}
-      <div className="hidden lg:grid top-0 z-10 w-full my-2 py-1">
-        <div className="mx-auto grid grid-cols-3 max-w-screen-lg justify-between">
-          <div className="col-span-2">
+      <div className="hidden lg:flex top-0 z-10 my-20 pr-4 fixed">
+        <div className="flex flex-col w-80">
+          <div className="w-16 h-16 rounded-full bg-gray-900 mb-6" />
+          <div>
             <Link href="/">
               <a>
-                <h1 className="text-sm font-semibold text-slate-800 hover:text-black px-4 py-1">Sriram Venugopal</h1>
+                <h1 className="text-xl font-extrabold text-gray-900 hover:text-gray-700 pb-2 tracking-tighter">Sriram Venugopal.</h1>
               </a>
             </Link>
+            <p className="text-sm text-gray-600 font-writer tracking-tight leading-relaxed font-medium">👋 Hello, I’m Sri. I’m a product designer, maker and illustrator based in Berlin. 
+              I’m currently designing products and experiences for Zalando SE.</p>
           </div>
-          <div className= "flex flex-row space-x-4">
+          <div className= "flex flex-col space-y-4 my-12">
             {
               defaultRoutes.map((route) => {
                 const isSelected = route.path === router.pathname
-                const defaultLinks = `font-sans text-sm flex text-slate-600 font-medium rounded-2xl px-4 py-1 items-center`
-                const activeLinks = `text-white bg-slate-900 font-semibold rounded-2xl px-4 py-1 items-center`
-                const inactiveLinks = `hover:text-slate-900 hover:font-semibold filter-saturate`
+                const defaultLinks = `font-writer text-gray-900 tracking-tight border-l-2 border-gray-50 px-2 py-1`
+                const activeLinks = `font-writer text-blue-700 font-bold tracking-tight border-l-2 border-blue-600 px-2 py-1`
+                const inactiveLinks = `hover:text-gray-700 hover:font-medium`
                 return (
                   <Link href={route.path} key={route.path}>
                     <a

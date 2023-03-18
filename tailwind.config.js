@@ -10,14 +10,35 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        slate: colors.slate,
-        blue: colors.blue,
+      animation: {
+        flub: "flub 7s infinite"
+      },
 
+      keyframes: {
+        flub: {
+          "0%":{
+            transform: "translate(0px, 0px) scale(1)"
+          },
+          "33%":{
+            transform: "translate(30px, -50px) scale(1.1)"
+          },
+          "66%":{
+            transform: "translate(-20px, 40px) scale(0.9)"
+          },
+          "100%":{
+            transform: "translate(0px, 0px) scale(1)"
+          },
+        },
+      },
+      
+      colors: {
+        gray: colors.gray,
+        blue: colors.blue,
       },
       
       fontFamily: {
         'sans': ['Inter Var', ...defaultTheme.fontFamily.sans],
+        'writer': ['iA Writer Quattro', ...defaultTheme.fontFamily.sans],
       },
 
       typography: (theme) => ({

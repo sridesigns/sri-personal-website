@@ -4,6 +4,7 @@ import Layout from "../../components/Layout";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { GetBlogPosts } from "../../graphql/data/Posts/blogposts";
+import { motion } from "framer-motion";
 
 
 export async function getStaticProps() {
@@ -23,29 +24,36 @@ export default function Love({ blogs }) {
   return (
     <Layout>
       <Head>
-        <title>Sri Loves</title>
+        <title>Love &middot; Sri</title>
         <link rel="icon" href="/favicons/alien.png" />
       </Head>
-      <Header />
-      <main className="max-w-screen md:max-w-screen-md mx-6 md:mx-auto ">
-        <header className=" py-16 space-y-2">
-          <h1 className="text-4xl font-extrabold text-slate-900 text-center">Love</h1>
-          <p className="text-sm text-slate-700 text-center">Curation of my thoughts and life experiences</p>
-        </header>
-        <div className="space-y-10 pb-20">
-          {blogs?.blogPosts?.map((blog) => (
-            <div key={blog.slug}>
-            <p className="text-xs text-slate-500 uppercase tracking-wide font-medium pb-2">{new Date(blog.publishedAt).toDateString()}</p>
-              <Link href={`/love/${blog.slug}`}>
-                <a>
-                  <h4 className="text-xl font-bold text-slate-900 hover:text-indigo-500 leading-relaxed">{blog.title}</h4>
-                </a>
-              </Link>
-              <p className="text-sm text-slate-700 leading-relaxed py-1">{blog.excerpt}</p>
-            </div>
-          ))}
-
+      <main className="lg:max-w-screen-xl mx-auto grid grid-cols-6 gap-6">
+        <div className=" col-span-2">
+          <Header />
         </div>
+        <motion.div
+           initial={{ opacity: 0, y: 500 }}
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ duration: 0.4 }}
+           className="col-span-4 my-20">
+          <header className="pb-16 space-y-2">
+            <h1 className="text-4xl font-extrabold text-gray-900 tracking-tighter">Love</h1>
+            <p className="text-sm text-gray-700 font-writer tracking-tight font-medium">Curation of my thoughts and life experiences</p>
+          </header>
+          <div className="space-y-10 pb-20">
+            {blogs?.blogPosts?.map((blog) => (
+              <div key={blog.slug}>
+                <Link href={`/love/${blog.slug}`}>
+                  <a>
+                    <h4 className="text-lg font-bold text-gray-900 hover:text-blue-700 leading-relaxed tracking-tight">{blog.title}</h4>
+                  </a>
+                </Link>
+                <p className="text-sm text-gray-700 leading-relaxed py-1 font-writer tracking-tight">{blog.excerpt}</p>
+                <p className="text-xs text-gray-500 tracking-tight font-writer py-1">{new Date(blog.publishedAt).toDateString()}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </main>
       <Footer />
 
